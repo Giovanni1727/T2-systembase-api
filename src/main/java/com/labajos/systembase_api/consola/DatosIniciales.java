@@ -8,7 +8,7 @@ import com.labajos.systembase_api.repositorio.EmpresaRepositorio;
 import com.labajos.systembase_api.repositorio.UsuarioRepositorio;
 
 @Component
-public class DatosIniciales implements CommandLineRunner {
+public class DatosIniciales implements CommandLineRunner { 
 
     private final EmpresaRepositorio empresaRepo;
     private final UsuarioRepositorio usuarioRepo;
