@@ -20,12 +20,12 @@ public class DatosIniciales implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // Si no hay empresas, creamos los datos por defecto
+        
         if (empresaRepo.count() == 0) {
             Empresa systemBase = new Empresa(null, "SystemBase", "11111111111");
             systemBase = empresaRepo.save(systemBase);
 
-            // Creamos el Administrador maestro asignado a SystemBase
+            
             Usuario admin = new Usuario(null, "admin", "admin", "ADMIN", systemBase);
             usuarioRepo.save(admin);
             
