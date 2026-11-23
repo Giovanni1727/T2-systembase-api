@@ -1,6 +1,7 @@
 package com.labajos.systembase_api.modelos;
 
 import jakarta.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "equipos")
@@ -10,12 +11,11 @@ public class Equipo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // --- Campos Comunes ---
-    @Column(nullable = false, unique = true, length = 50)
+    @Column(unique = true, nullable = false, length = 30)
     private String serie;
 
-    @Column(nullable = false, length = 50)
-    private String tipo; // Laptop, Desktop, Impresora, Escaner, Pistola
+    @Column(nullable = false, length = 30)
+    private String tipo;
 
     @Column(nullable = false, length = 100)
     private String modelo;
@@ -24,59 +24,128 @@ public class Equipo {
     @JoinColumn(name = "empresa_id", nullable = false)
     private Empresa empresa;
 
-    // --- Campos Específicos (Laptops/Desktops) ---
-    @Column(length = 100)
+    @Column(length = 30)
     private String procesador;
-    
-    @Column(length = 20)
+
+    @Column(length = 30)
     private String ram;
-    
-    @Column(length = 20)
-    private String disco; // 512GB, 1TB, 2TB, 4TB
-    
-    @Column(length = 20)
-    private String tamano; // 14'', 16'', 12''
 
-    // --- Campos Específicos (Impresoras/Escaner/Pistola) ---
-    @Column(length = 100)
+    @Column(length = 30)
+    private String disco;
+
+    @Column(length = 30)
+    private String tamano;
+
+    @Column(length = 30)
     private String compatibilidad;
-    
-    @Column(length = 50)
-    private String interfaz; // USB, RJ45, etc.
 
-    public Equipo() {}
+    @Column(length = 30)
+    private String interfaz;
 
-    // Getters y Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    private LocalDate fechaInicioAlquiler;
+    private Integer mesesAlquiler;
 
-    public String getSerie() { return serie; }
-    public void setSerie(String serie) { this.serie = serie; }
+    public Long getId() {
+        return id;
+    }
 
-    public String getTipo() { return tipo; }
-    public void setTipo(String tipo) { this.tipo = tipo; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getModelo() { return modelo; }
-    public void setModelo(String modelo) { this.modelo = modelo; }
+    public String getSerie() {
+        return serie;
+    }
 
-    public Empresa getEmpresa() { return empresa; }
-    public void setEmpresa(Empresa empresa) { this.empresa = empresa; }
+    public void setSerie(String serie) {
+        this.serie = serie;
+    }
 
-    public String getProcesador() { return procesador; }
-    public void setProcesador(String procesador) { this.procesador = procesador; }
+    public String getTipo() {
+        return tipo;
+    }
 
-    public String getRam() { return ram; }
-    public void setRam(String ram) { this.ram = ram; }
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 
-    public String getDisco() { return disco; }
-    public void setDisco(String disco) { this.disco = disco; }
+    public String getModelo() {
+        return modelo;
+    }
 
-    public String getTamano() { return tamano; }
-    public void setTamano(String tamano) { this.tamano = tamano; }
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
 
-    public String getCompatibilidad() { return compatibilidad; }
-    public void setCompatibilidad(String compatibilidad) { this.compatibilidad = compatibilidad; }
+    public Empresa getEmpresa() {
+        return empresa;
+    }
 
-    public String getInterfaz() { return interfaz; }
-    public void setInterfaz(String interfaz) { this.interfaz = interfaz; }
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
+    public String getProcesador() {
+        return procesador;
+    }
+
+    public void setProcesador(String procesador) {
+        this.procesador = procesador;
+    }
+
+    public String getRam() {
+        return ram;
+    }
+
+    public void setRam(String ram) {
+        this.ram = ram;
+    }
+
+    public String getDisco() {
+        return disco;
+    }
+
+    public void setDisco(String disco) {
+        this.disco = disco;
+    }
+
+    public String getTamano() {
+        return tamano;
+    }
+
+    public void setTamano(String tamano) {
+        this.tamano = tamano;
+    }
+
+    public String getCompatibilidad() {
+        return compatibilidad;
+    }
+
+    public void setCompatibilidad(String compatibilidad) {
+        this.compatibilidad = compatibilidad;
+    }
+
+    public String getInterfaz() {
+        return interfaz;
+    }
+
+    public void setInterfaz(String interfaz) {
+        this.interfaz = interfaz;
+    }
+
+    public LocalDate getFechaInicioAlquiler() {
+        return fechaInicioAlquiler;
+    }
+
+    public void setFechaInicioAlquiler(LocalDate fechaInicioAlquiler) {
+        this.fechaInicioAlquiler = fechaInicioAlquiler;
+    }
+
+    public Integer getMesesAlquiler() {
+        return mesesAlquiler;
+    }
+
+    public void setMesesAlquiler(Integer mesesAlquiler) {
+        this.mesesAlquiler = mesesAlquiler;
+    }
 }
