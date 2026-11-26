@@ -43,6 +43,7 @@ public class Equipo {
     private String interfaz;
 
     private LocalDate fechaInicioAlquiler;
+    private LocalDate fechaFinAlquiler;
     private Integer mesesAlquiler;
 
     public Long getId() {
@@ -139,6 +140,14 @@ public class Equipo {
 
     public void setFechaInicioAlquiler(LocalDate fechaInicioAlquiler) {
         this.fechaInicioAlquiler = fechaInicioAlquiler;
+    }
+
+    public LocalDate getFechaFinAlquiler() {
+        return fechaFinAlquiler;
+    }
+
+    public void setFechaFinAlquiler(LocalDate fechaFinAlquiler) {
+        this.fechaFinAlquiler = fechaFinAlquiler;
     }
 
     public Integer getMesesAlquiler() {
